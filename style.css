@@ -1,0 +1,80 @@
+html,
+body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper {
+    width: 500px;
+    height: 150px;
+    background: chartreuse;
+
+    position: relative;
+    z-index: -10;
+}
+
+.square {
+    height: 20px;
+    width: 20px;
+    background: #ebf2fa;
+
+    position: absolute;
+    bottom: 10%;
+    left: calc(50% - 10px);
+    animation: square-jump 2s infinite ease, square-spin 2s infinite ease;
+}
+
+@keyframes square-jump {
+    0% {
+        bottom: 10%;
+    }
+    10% {
+        border-radius: 50%;
+        bottom: 50%;
+    }
+    100% {
+        bottom: 10%;
+    }
+}
+
+@keyframes square-spin {
+    0% {
+        transform: rotateZ(720deg);
+    }
+    75% {
+        transform: rotateZ(0);
+    }
+}
+
+.shadow {
+    height: 4px;
+    width: 20px;
+    background: rgba(0, 0, 0, 0.3);
+    filter: blur(1px);
+    border-radius: 10px;
+    position: absolute;
+    bottom: 8%;
+    left: calc(50% - 10px);
+    z-index: -5;
+    animation: shadow-bounce 2s infinite ease;
+}
+
+@keyframes shadow-bounce {
+    0% {
+        transform: scale(1);
+    }
+    10% {
+        transform: scale(0.4);
+        background: rgba(0, 0, 0, 0.1);
+    }
+    100% {
+        transform: scale(1.4);
+        border-radius: 50%;
+        filter: none;
+    }
+}
